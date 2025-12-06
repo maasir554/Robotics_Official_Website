@@ -7,8 +7,40 @@ const Footer = () => {
         </div>
 
         <div className="flex flex-col md:flex-row">
-          <div className="w-full md:w-1/2">
-            <form action="Submit"></form>
+          <div className="w-full md:w-1/2 p-8 md:p-8 flex flex-col gap-6">
+            <form action="Submit" className="flex flex-col gap-4">
+              
+              <label htmlFor="name" className="text-gray-500">Name</label>
+              <input 
+              id = "name"
+              name="name"
+              type="text" 
+              className="bg-white md:w-[500px] py-2 rounded-lg "
+              
+              />
+
+              <label htmlFor="email" className="text-gray-500">E-mail</label>
+              <input 
+              id="email"
+              name="email"
+              type="text" 
+              className="bg-white md:w-[500px] py-2 rounded-lg"
+              
+              />
+
+              <label htmlFor="msg" className="text-gray-500">Message</label>
+              <input 
+              id="msg"
+              name="msg"
+              type="text" 
+              className="bg-white md:w-[500px] py-2 h-[100px] rounded-lg"
+              
+              />
+            </form>
+
+            <button className="text-white bg-gray-600 px-6 py-3 w-[150px] rounded-xl">
+              Submit
+            </button>
           </div>
 
           <div className="w-full md:w-1/2">
