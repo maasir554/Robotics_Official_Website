@@ -86,6 +86,7 @@ const Participant = () => {
         </div>
 
         </div>
+        <div className="w-full bg-white h-[1px]"></div>
       </div>
     </>
   );
