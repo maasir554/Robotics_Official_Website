@@ -16,16 +16,16 @@ const PastEventText = () => {
   return (
     <>
         <div>
-            <div className='flex flex-col md:flex-row justify-center gap-8 md:gap-12 p-4'>
+            <div className='flex flex-col md:flex-row justify-center gap-8 md:gap-12 p-4 mt-16'>
                 {Comments.map((comment) =>(
-                    <div key={comment.id} className='bg-[linear-gradient(135deg,#FFFFFFFF,#3B55D963,#324EC394,#273867FF)] p-4 w-full md:w-1/3'>
-                        <p>{comment.comment}</p>
-                        <p>{comment.name}</p>
+                    <div key={comment.id} className='bg-[linear-gradient(135deg,#FFFFFFFF,#3B55D963,#324EC394,#273867FF)] p-6 w-full md:w-7/24 py-8 border border-white text-white rounded-sm'>
+                        <p className='p-4 line-clamp-3 shadow-sm shadow-[black]'>{comment.comment}</p>
+                        <p className='p-4 font-semibold'>{comment.name}</p>
                     </div>
                     
                 ))}
-                <div className='bg-[linear-gradient(135deg,#FFFFFFFF,#3B55D963,#324EC394,#273867FF)] p-4 w-full md:w-1/5'>
-                    <h5>Club statistics</h5>
+                <div className='bg-[linear-gradient(135deg,#FFFFFFFF,#3B55D963,#324EC394,#273867FF)] p-4 w-full md:w-1/5 border border-white text-white'>
+                    <h5 className='font-bold'>Club statistics</h5>
                     
                     <div className='flex justify-between'>
                         <p>Total Participants</p>
