@@ -90,7 +90,7 @@ const Participant = () => {
                                     bg-white w-[300px] absolute h-[180px] rounded-lg 
                                     flex items-center justify-center 
                                     top-[-90px] left-1/2 transform -translate-x-1/2 
-                                    shadow-[0_0_40px_10px_rgba(144,83,232,0.64)] 
+                                    shadow-[10px_-10px_40px_10px_rgba(144,83,232,0.64)] 
                                     
                                 "
                             >
