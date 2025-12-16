@@ -50,7 +50,7 @@ export default function Navbar() {
         <ul className={`
             md:hidden text-white absolute top-[65px] left-0 w-full 
             flex flex-col gap-0 font-semibold items-center 
-            bg-blue-900 shadow-xl z-40
+            bg-[rgba(22,24,49,1)] shadow-xl z-40
             transition-all duration-500 ease-in-out overflow-hidden
             ${open ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'} 
         `}>
