@@ -9,6 +9,7 @@ import PastEvent from './Components/PastEvent';
 import PeopleSay from './Components/PeopleSay';
 import SponRelay from './Components/SponRelay';
 import Footer from './Components/Footer';
+import AuroraWave from "./Components/AuroraWave"
 
 
 export default function Home() {
@@ -25,6 +26,7 @@ export default function Home() {
       <PeopleSay />
       <SponRelay />
       <Footer />
+      <AuroraWave />
     </>
   );
 }

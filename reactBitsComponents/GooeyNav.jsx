@@ -287,7 +287,7 @@ const GooeyNav = ({
             {items.map((item, index) => (
               <li
                 key={index}
-                className={`rounded-full relative cursor-pointer transition-[background-color_color_box-shadow] duration-300 ease shadow-[0_0_0.5px_1.5px_transparent] text-white ${
+                className={`flex flex-col md:flex-row gap-4 md:gap-8 list-none p-0 px-4 m-0  rounded-full relative cursor-pointer transition-[background-color_color_box-shadow] duration-300 ease shadow-[0_0_0.5px_1.5px_transparent] text-white ${
                   activeIndex === index ? 'active' : ''
                 }`}
               >
@@ -300,7 +300,7 @@ const GooeyNav = ({
                 </a>
               </li>
             ))}
-          </ul>
+          </ul> 
         </nav>
         <span className="effect filter" ref={filterRef} />
         <span className="effect text" ref={textRef} />

@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     // Use <section> or <footer> for semantic HTML
-    <footer className=" py-16 md:py-24">
+    <footer className=" py-6 md:py-0">
       {/* Container for Centering and Max Width */}
       <div className="container mx-auto px-6 lg:px-12">
         
