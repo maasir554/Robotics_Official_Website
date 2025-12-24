@@ -1,65 +1,109 @@
+"use client";
+
+import React from 'react';
+import { motion } from "framer-motion";
+
 const NewSponsor = () => {
   return (
     <>
-      <section className="py-12 md:py-24 ">
-        {/* Main Card Container 
-            FIX APPLIED: max-w-6xl changed to max-w-7xl for increased width.
-        */}
-        <div className="mb-20">
+      <section className="py-12 md:py-24 overflow-hidden" id="upcoming">
+        {/* Header Section Animation */}
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-20"
+        >
           <h1 className="text-center text-4xl md:text-5xl font-extrabold text-white">
             Upcoming <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-500">Event : RoboMAX</span>
           </h1>
-         
-        </div>
-        <div className="
-          bg-gradient-to-br from-indigo-900 to-purple-900 
-          mx-auto p-8 md:p-16 w-11/12 max-w-7xl // <-- INCREASED WIDTH HERE
-          rounded-[40px] md:rounded-[60px] 
-          border border-white/5 backdrop-blur-3xl shadow-2xl shadow-purple-500/10"
+        </motion.div>
+
+        {/* Main Card with Scale-up Animation */}
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="
+            bg-gradient-to-br from-indigo-900/40 to-purple-900/40 
+            mx-auto p-8 md:p-16 w-11/12 max-w-7xl 
+            rounded-[40px] md:rounded-[60px] 
+            border border-white/10 backdrop-blur-3xl shadow-2xl shadow-purple-500/10"
         >
           <div className="flex flex-col md:flex-row gap-10 md:gap-16">
             
-            {/* Left Section: Image Placeholder */}
-            <div className="w-full md:w-1/2 flex items-center justify-center">
-              <div className="w-full h-64 md:h-96 bg-gray-700/60 rounded-3xl flex items-center justify-center text-gray-300 text-xl font-bold">
+            {/* Left Section: Floating Animation for Image */}
+            <motion.div 
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="w-full md:w-1/2 flex items-center justify-center"
+            >
+              <motion.div 
+                animate={{ y: [0, -15, 0] }} // Gentle floating effect
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="w-full h-64 md:h-96 bg-gradient-to-tr from-gray-700/40 to-gray-600/20 
+                           rounded-3xl flex items-center justify-center text-gray-300 text-xl 
+                           font-bold border border-white/5 shadow-2xl"
+              >
                 Main Sponsor/Video Placeholder 
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
 
-            {/* Right Section: Text Content and CTA */}
-            <div className="w-full md:w-1/2 flex flex-col items-start space-y-4 justify-center">
-              {/* Tag/Badge: "New Sponsor Presents" */}
-              <div className="p-2 text-xs uppercase tracking-wider font-semibold text-white 
-                            bg-gradient-to-r from-purple-500 to-indigo-500 rounded-lg">
+            {/* Right Section: Text Content with Staggered Fade-in */}
+            <div className="w-full md:w-1/2 flex flex-col items-start space-y-6 justify-center">
+              
+              <motion.div 
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+                className="px-4 py-1.5 text-xs uppercase tracking-widest font-bold text-white 
+                           bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full shadow-lg shadow-purple-500/30"
+              >
                 New Sponsor Presents
-              </div>
+              </motion.div>
               
-              {/* Main Headline */}
-              <h1 className="text-white text-3xl md:text-5xl font-extrabold leading-tight">
-                Annual Robotics Competition
-              </h1>
+              <motion.h1 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+                className="text-white text-3xl md:text-6xl font-extrabold leading-tight"
+              >
+                Annual Robotics <br />
+                <span className="text-indigo-400">Competition</span>
+              </motion.h1>
               
-              {/* Description */}
-              <p className="text-gray-300 text-lg leading-relaxed max-w-lg">
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6 }}
+                className="text-gray-300 text-lg leading-relaxed max-w-lg"
+              >
                 Join us for the biggest robotics competition in Central India. Showcase your skills, compete with the best teams, and win exciting prizes.
-              </p>
+              </motion.p>
               
-              {/* CTA Button */}
-              <button className="
-                bg-gradient-to-r from-purple-600 to-indigo-500 
-                text-white py-3 px-10 rounded-lg 
-                font-bold text-lg mt-4 
-                hover:shadow-lg hover:shadow-purple-500/50 transition duration-300 transform hover:scale-[1.02]"
+              <motion.button 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ delay: 0.7 }}
+                className="
+                  bg-gradient-to-r from-purple-600 to-indigo-500 
+                  text-white py-4 px-12 rounded-xl 
+                  font-bold text-lg mt-4 shadow-xl
+                  hover:shadow-purple-500/50 transition-all duration-300"
               >
                 Register Now
-              </button>
+              </motion.button>
             </div>
           </div>
 
-          
+          {/* Commented Section Maintained as requested */}
           {/* <div className="text-white text-center mt-16 md:mt-24">
-            
-           
             <h3 className="
               text-sm uppercase tracking-widest font-semibold py-1 px-4 
               bg-gradient-to-r from-purple-500 to-indigo-500 mx-auto 
@@ -68,7 +112,6 @@ const NewSponsor = () => {
               Event Sponsors & Partners
             </h3>
             
-           
             <div className="flex flex-wrap justify-center gap-6 md:gap-8 items-center mt-8">
               {[1, 2, 3, 4, 5].map((i) => (
                 <div key={i} className="w-full sm:w-1/4 md:w-1/6 p-4 bg-white rounded-lg h-20 flex items-center justify-center text-gray-600 font-medium">
@@ -77,7 +120,7 @@ const NewSponsor = () => {
               ))}
             </div>
           </div> */}
-        </div>
+        </motion.div>
       </section>
     </>
   );

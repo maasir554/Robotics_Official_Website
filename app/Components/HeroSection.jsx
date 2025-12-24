@@ -1,6 +1,23 @@
-import LiquidEther from "../../reactBitsComponents/LiquidEther"
+"use client";
+
+import { motion } from "framer-motion";
+import LiquidEther from "../../reactBitsComponents/LiquidEther";
 
 const HeroSection = () => {
+  // Animation variants for the headline lines
+  const lineVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: 0.3 + i * 0.15,
+        duration: 0.8,
+        ease: [0.2, 0.65, 0.3, 0.9],
+      },
+    }),
+  };
+
   return (
     <section className="relative overflow-hidden h-[90vh] flex items-center bg-[#161831]">
       
@@ -28,7 +45,7 @@ const HeroSection = () => {
         />
       </div>
 
-      {/* 2. Gradient Blobs for Depth (Optional, placed behind content) */}
+      {/* 2. Gradient Blobs for Depth */}
       <div className="hidden md:block absolute top-[-5%] left-[-5%] w-96 h-96 rounded-full bg-indigo-600 opacity-20 blur-[120px] animate-pulse z-1"></div>
       <div className="hidden md:block absolute bottom-[-5%] right-[-5%] w-96 h-96 rounded-full bg-purple-600 opacity-20 blur-[120px] animate-pulse delay-700 z-1"></div>
 
@@ -39,34 +56,73 @@ const HeroSection = () => {
           {/* Text Content */}
           <div className="flex flex-col w-full md:w-1/2">
             <div className="flex flex-col text-center md:text-left">
-              <h1 className="text-5xl md:text-7xl font-extrabold mb-2 leading-tight">
-                <span className="block text-white">WELCOME TO</span>
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-500 md:whitespace-nowrap">
+              <motion.h1 
+                initial="hidden"
+                animate="visible"
+                className="text-5xl md:text-7xl font-extrabold mb-2 leading-tight"
+              >
+                <motion.span custom={0} variants={lineVariants} className="block text-white">
+                  WELCOME TO
+                </motion.span>
+                <motion.span 
+                  custom={1} 
+                  variants={lineVariants} 
+                  className="block text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-500 md:whitespace-nowrap"
+                >
                   ROBOTICS CLUB
-                </span>
-              </h1>
-              <h1 className="text-5xl md:text-7xl font-extrabold text-white md:whitespace-nowrap -mt-4">
+                </motion.span>
+                <motion.span 
+                  custom={2} 
+                  variants={lineVariants} 
+                  className="block text-white md:whitespace-nowrap -mt-4"
+                >
                   MANIT
-              </h1>
+                </motion.span>
+              </motion.h1>
               
-              <p className="text-lg text-indigo-300 font-semibold mt-4 md:text-right tracking-wide">
-                When innovation meets engineering
-              </p>
+              <motion.p 
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 1, duration: 0.8 }}
+                className="text-lg text-indigo-300 font-semibold mt-4 md:text-right tracking-wide italic"
+              >
+                "When innovation meets engineering"
+              </motion.p>
             </div>
           </div>
 
           {/* Image Section */}
-          <div className="w-full md:w-1/2 flex justify-center items-center">
-              <div className="relative p-2 transition duration-500 hover:scale-105">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.8, x: 50 }}
+            animate={{ opacity: 1, scale: 1, x: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="w-full md:w-1/2 flex justify-center items-center"
+          >
+              <div className="relative p-2">
                   {/* Subtle glow behind the robot */}
-                  <div className="absolute inset-0 bg-indigo-500/20 blur-2xl rounded-full"></div>
-                  <img 
+                  <motion.div 
+                    animate={{ 
+                      opacity: [0.2, 0.4, 0.2],
+                      scale: [1, 1.1, 1] 
+                    }}
+                    transition={{ duration: 4, repeat: Infinity }}
+                    className="absolute inset-0 bg-indigo-500/20 blur-3xl rounded-full"
+                  ></motion.div>
+                  
+                  {/* Floating Robot Image */}
+                  <motion.img 
+                      animate={{ y: [0, -20, 0] }}
+                      transition={{ 
+                        duration: 5, 
+                        repeat: Infinity, 
+                        ease: "easeInOut" 
+                      }}
                       src="https://res.cloudinary.com/dmg4pfrkg/image/upload/v1764771486/3ed4a00b22d66e2a32b349fb07011802197b52e8_dcg2ow.png" 
                       alt="Robotics Club Robot" 
-                      className="relative w-full h-auto max-w-lg rounded-lg scale-x-[-1] drop-shadow-[0_20px_50px_rgba(79,70,229,0.3)]" 
+                      className="relative w-full h-auto max-w-lg rounded-lg scale-x-[-1] drop-shadow-[0_20px_50px_rgba(79,70,229,0.4)]" 
                   />
               </div>
-          </div>
+          </motion.div>
 
         </div>
       </div>

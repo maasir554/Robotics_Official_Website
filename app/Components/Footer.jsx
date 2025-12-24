@@ -1,98 +1,122 @@
+"use client";
+
+import React from "react";
+import { motion } from "framer-motion";
+
 const Footer = () => {
   return (
-    // Use <section> or <footer> for semantic HTML
-    <footer className=" py-6 md:py-0">
-      {/* Container for Centering and Max Width */}
+    <footer className="py-12 md:py-24 bg-[#0d0f23]">
       <div className="container mx-auto px-6 lg:px-12">
         
-        {/* Contact Us Header */}
-        <div className="text-white text-center text-3xl md:text-5xl font-extrabold mb-12 md:mb-16">
-          <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-500">
+        {/* Header Section */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-12 md:mb-16"
+        >
+          <h1 className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-500">
             Get In Touch
           </h1>
-        </div>
+          <p className="text-gray-400 mt-4 italic">Have a question? We'd love to hear from you.</p>
+        </motion.div>
 
         <div className="flex flex-col md:flex-row gap-12 md:gap-16">
           
           {/* Left Section: Contact Form */}
-          <div className="w-full md:w-1/2 flex flex-col gap-8 p-0">
-            <form action="Submit" className="flex flex-col gap-6">
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="w-full md:w-1/2"
+          >
+            <form onSubmit={(e) => e.preventDefault()} className="flex flex-col gap-6">
               
               {/* Name Input */}
-              <div>
+              <motion.div whileFocus={{ scale: 1.01 }}>
                 <label htmlFor="name" className="text-gray-300 block mb-2 text-lg font-medium">Full Name</label>
                 <input 
                   id="name"
-                  name="name"
                   type="text" 
-                  // Enhanced Input Styling: Dark background, border, padding, full width, hover effect
-                  className="bg-gray-800 text-white w-full py-3 px-4 rounded-xl 
+                  className="bg-gray-800/50 text-white w-full py-4 px-5 rounded-xl 
                              border border-gray-700 focus:border-indigo-500 focus:ring-1 
-                             focus:ring-indigo-500 transition duration-200 placeholder-gray-500"
+                             focus:ring-indigo-500 transition-all duration-200 placeholder-gray-500
+                             backdrop-blur-sm"
                   placeholder="Enter your name"
                 />
-              </div>
+              </motion.div>
 
               {/* E-mail Input */}
-              <div>
+              <motion.div whileFocus={{ scale: 1.01 }}>
                 <label htmlFor="email" className="text-gray-300 block mb-2 text-lg font-medium">Email Address</label>
                 <input 
                   id="email"
-                  name="email"
-                  type="email" // Changed type to email for better mobile keyboard and validation
-                  className="bg-gray-800 text-white w-full py-3 px-4 rounded-xl 
+                  type="email" 
+                  className="bg-gray-800/50 text-white w-full py-4 px-5 rounded-xl 
                              border border-gray-700 focus:border-indigo-500 focus:ring-1 
-                             focus:ring-indigo-500 transition duration-200 placeholder-gray-500"
+                             focus:ring-indigo-500 transition-all duration-200 placeholder-gray-500"
                   placeholder="name@example.com"
                 />
-              </div>
+              </motion.div>
 
               {/* Message Textarea */}
-              <div>
+              <motion.div whileFocus={{ scale: 1.01 }}>
                 <label htmlFor="msg" className="text-gray-300 block mb-2 text-lg font-medium">Message</label>
-                <textarea // Changed <input type="text"> to <textarea> for multi-line input
+                <textarea 
                   id="msg"
-                  name="msg"
-                  rows="4" // Set initial height using rows
-                  className="bg-gray-800 text-white w-full py-3 px-4 rounded-xl 
+                  rows="4" 
+                  className="bg-gray-800/50 text-white w-full py-4 px-5 rounded-xl 
                              border border-gray-700 focus:border-indigo-500 focus:ring-1 
-                             focus:ring-indigo-500 transition duration-200 resize-none placeholder-gray-500"
+                             focus:ring-indigo-500 transition-all duration-200 resize-none placeholder-gray-500"
                   placeholder="Tell us about your query..."
                 />
-              </div>
+              </motion.div>
               
               {/* Submit Button */}
-              <button 
-                type="submit" // Set type to submit
+              <motion.button 
+                whileHover={{ scale: 1.05, boxShadow: "0px 0px 20px rgba(99, 102, 241, 0.4)" }}
+                whileTap={{ scale: 0.95 }}
+                type="submit" 
                 className="
                   text-white bg-gradient-to-r from-purple-600 to-indigo-500 
-                  px-2 py-3 w-40 rounded-xl font-bold text-lg mt-4 
-                  hover:shadow-lg hover:shadow-indigo-500/50 
-                  transition duration-300 transform hover:scale-[1.02]"
+                  py-4 rounded-xl font-bold text-lg mt-4 w-full md:w-48
+                  transition duration-300 shadow-xl"
               >
                 Send Message
-              </button>
-
+              </motion.button>
             </form>
-          </div>
+          </motion.div>
 
           {/* Right Section: Map */}
-          <div className="w-full md:w-1/2 shadow-2xl rounded-xl overflow-hidden">
+          <motion.div 
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="w-full md:w-1/2 shadow-2xl rounded-3xl overflow-hidden border border-white/5"
+          >
+            {/* Replace with your specific MANIT Map Embed Link */}
             <iframe
-              // Note: This URL must be changed to your actual campus location map embed URL
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117764.55018658822!2d77.34680872856525!3d23.23595217436034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397c4587c4854f3b%3A0x6b42b662df94d6c4!2sMANIT!5e0!3m2!1sen!2sin!4v1703610991978!5m2!1sen!2sin"
-              className="w-full h-[400px] md:h-full min-h-[400px]" // Ensure full height on desktop
+              title="MANIT Location"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m13!1d3666.3211565552467!2d77.40124377591745!3d23.23136450849156!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397c426a3869919f%3A0x67341e98d9082269!2sMaulana%20Azad%20National%20Institute%20of%20Technology%20(MANIT)!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+              className="w-full h-[400px] md:h-full min-h-[400px] grayscale contrast-125 opacity-80 hover:opacity-100 hover:grayscale-0 transition-all duration-700"
               style={{ border: 0 }}
               allowFullScreen=""
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             />
-          </div>
+          </motion.div>
         </div>
         
-        {/* Footer Bottom Line (Optional) */}
-        <div className="mt-16 pt-8 border-t border-gray-800 text-center text-gray-500">
-            <p>&copy; {new Date().getFullYear()} Robotics Club MANIT. All Rights Reserved.</p>
+        {/* Footer Bottom Line */}
+        <div className="mt-20 pt-8 border-t border-gray-800/50 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-500 text-sm">
+            <p>© {new Date().getFullYear()} Robotics Club MANIT. All Rights Reserved.</p>
+            <div className="flex gap-6">
+              <a href="#" className="hover:text-indigo-400 transition-colors">Instagram</a>
+              <a href="#" className="hover:text-indigo-400 transition-colors">LinkedIn</a>
+              <a href="#" className="hover:text-indigo-400 transition-colors">Twitter</a>
+            </div>
         </div>
       </div>
     </footer>

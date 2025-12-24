@@ -1,113 +1,153 @@
+"use client";
+
 import React from "react";
+import { motion } from "framer-motion";
 
 const Participant = () => {
     const awardsList = [
-        { id: 1, name: "ABU ROBOCON 23", des: "In the 2023 ABU Robocon ideation round, out team achieved 98.5 out of 100 points. We presented a detailed project featuring CAD modeling and documentation, with a focus on ring-throwing an collection robots" },
-        { id: 2, name: "FLIPKART GRID 4.0", des: "Hosted bu FlipKart, we built an autonomous drone for the esteemed GRID 4.0 competition. The drone was capable of pick and drop using camera vision, intergrating a pixhawk-flight controller an Raspberry Pi board" },
-        { id: 3, name: "IRDC 2023", des: " Our robotics club achieved a significant milestine by advancing to the second round of the international Rover Design Challenge (IRDC). Hosted by the Space Robotics Society. We demonstrated our team's exceptional technical abilities " },
-        { id: 4, name: "ISRO ROVER CHALLENGE'23", des: "Our robotics club is proud to announce its advancement to the second round of the ISRO Robotics challenge-URSC 2024. Themed 'Let's build a space robot', This competition offers a platform to develop robotics solution for future ISRP mission" },
-        { id: 5, name: "International RoboCup", des: "Participation in the European standard league" },
-        { id: 6, name: "AI Summit", des: "Best Research Paper Presentation Award" },
+        { id: 1, name: "ABU ROBOCON 23", des: "In the 2023 ABU Robocon ideation round, our team achieved 98.5 out of 100 points. We presented a detailed project featuring CAD modeling and documentation." },
+        { id: 2, name: "FLIPKART GRID 4.0", des: "Hosted by Flipkart, we built an autonomous drone for the esteemed GRID 4.0 competition capable of pick and drop using camera vision." },
+        { id: 3, name: "IRDC 2023", des: "Our robotics club advanced to the second round of the International Rover Design Challenge (IRDC), demonstrating exceptional technical abilities." },
+        { id: 4, name: "ISRO ROVER CHALLENGE'23", des: "Proud to announce our advancement to the second round of the ISRO Robotics challenge-URSC 2024. Themed 'Let's build a space robot'." },
+        { id: 5, name: "International RoboCup", des: "Participation in the European standard league representing our institution on a global stage." },
+        { id: 6, name: "AI Summit", des: "Recognized for the Best Research Paper Presentation Award among top technical universities." },
     ];
-    
+
+    // Animation variants
+    const fadeInUp = {
+        hidden: { opacity: 0, y: 30 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+    };
+
+    const staggerContainer = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: { staggerChildren: 0.1 }
+        }
+    };
+
     return (
-        <section className="bg-gray-900 py-20 md:py-28">
+        <section className="bg-gray-900 py-20 md:py-28 overflow-hidden">
             <div className="container mx-auto px-6 lg:px-12">
                 
                 {/* 1. Header Section */}
-                <div className="text-center text-4xl md:text-5xl font-extrabold mb-16">
-                    <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-500">
+                <motion.div 
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    className="text-center mb-24"
+                >
+                    <h1 className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-500">
                         Participations & Achievements
                     </h1>
-                </div>
+                    <div className="w-24 h-1 bg-indigo-500 mx-auto mt-4 rounded-full opacity-50" />
+                </motion.div>
 
                 {/* 2. Top Section: Visual Achievements & Awards List */}
-                <div className="flex flex-col md:flex-row items-center md:justify-around gap-12 md:gap-8 mb-24">
+                <div className="flex flex-col md:flex-row items-center md:justify-around gap-12 md:gap-8 mb-32">
                     
-                    {/* Visual Placeholders (Trophy & Certificate) */}
-                    <div className="flex gap-6 md:gap-12">
-                        {/* Trophy Placeholder */}
-                        <div className="bg-white/5 w-[150px] md:w-[220px] rounded-2xl h-[200px] 
-                                        flex flex-col items-center justify-center p-4 
-                                        shadow-lg border border-yellow-400/50">
-                            <svg className="w-16 h-16 text-yellow-400 mb-2" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zM12 9l-4 4 1 1 3-3 5 5 1-1-6-6z"/>
-                            </svg>
-                            <span className="text-gray-300 font-medium">National Trophy</span>
-                        </div>
+                    {/* Visual Placeholders */}
+                    <motion.div 
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        variants={staggerContainer}
+                        className="flex gap-6 md:gap-12"
+                    >
+                        {/* Trophy */}
+                        <motion.div 
+                            variants={fadeInUp}
+                            whileHover={{ y: -10, boxShadow: "0 0 25px rgba(250, 204, 21, 0.3)" }}
+                            className="bg-white/5 w-[150px] md:w-[220px] rounded-2xl h-[200px] flex flex-col items-center justify-center p-4 shadow-lg border border-yellow-400/30 backdrop-blur-sm transition-colors hover:border-yellow-400"
+                        >
+                            <span className="text-5xl mb-3">🏆</span>
+                            <span className="text-gray-300 font-bold text-center">National Trophy</span>
+                        </motion.div>
                         
-                        {/* Certificate Placeholder */}
-                        <div className="bg-white/5 w-[150px] md:w-[220px] rounded-2xl h-[200px] 
-                                        flex flex-col items-center justify-center p-4 
-                                        shadow-lg border border-blue-400/50">
-                            <svg className="w-16 h-16 text-blue-400 mb-2" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zM12 9l-4 4 1 1 3-3 5 5 1-1-6-6z"/>
-                            </svg>
-                            <span className="text-gray-300 font-medium">IIT TechFest Cert.</span>
-                        </div>
-                    </div>
+                        {/* Certificate */}
+                        <motion.div 
+                            variants={fadeInUp}
+                            whileHover={{ y: -10, boxShadow: "0 0 25px rgba(59, 130, 246, 0.3)" }}
+                            className="bg-white/5 w-[150px] md:w-[220px] rounded-2xl h-[200px] flex flex-col items-center justify-center p-4 shadow-lg border border-blue-400/30 backdrop-blur-sm transition-colors hover:border-blue-400"
+                        >
+                            <span className="text-5xl mb-3">📜</span>
+                            <span className="text-gray-300 font-bold text-center">IIT TechFest Cert.</span>
+                        </motion.div>
+                    </motion.div>
 
-                    {/* Awards and Recognition List */}
-                    <div className="w-full md:w-1/3 text-white p-4">
+                    {/* Awards List */}
+                    <motion.div 
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        variants={staggerContainer}
+                        className="w-full md:w-1/2 lg:w-1/3 text-white p-6 bg-indigo-950/20 rounded-3xl border border-indigo-500/10"
+                    >
                         <h3 className="mb-6 font-extrabold text-2xl text-indigo-400">Awards and Recognition</h3>
                         <ul className="flex flex-col gap-4 text-lg">
-                            <li className="flex items-start">
-                                <span className="text-purple-400 mr-3">🏆</span> 1st Place - National Robotics Championship 2023
-                            </li>
-                            <li className="flex items-start">
-                                <span className="text-purple-400 mr-3">🥇</span> Best Innovation Award - IIT Delhi TechFest
-                            </li>
-                            <li className="flex items-start">
-                                <span className="text-purple-400 mr-3">🌍</span> Participation in International RoboCup
-                            </li>
-                            <li className="flex items-start">
-                                <span className="text-purple-400 mr-3">🏅</span> Winner - State Level Line Following Competition
-                            </li>
-                            <li className="flex items-start">
-                                <span className="text-purple-400 mr-3">📰</span> Featured in National Technology Magazine
-                            </li>
+                            {[
+                                { ico: "🏆", txt: "1st Place - National Robotics 2023" },
+                                { ico: "🥇", txt: "Best Innovation - IIT Delhi TechFest" },
+                                { ico: "🌍", txt: "International RoboCup Participant" },
+                                { ico: "🏅", txt: "Winner - State Level Line Follower" }
+                            ].map((item, i) => (
+                                <motion.li 
+                                    key={i}
+                                    variants={fadeInUp}
+                                    className="flex items-start bg-white/5 p-3 rounded-xl border border-transparent hover:border-indigo-500/30 transition-all"
+                                >
+                                    <span className="mr-3">{item.ico}</span> {item.txt}
+                                </motion.li>
+                            ))}
                         </ul>
-                    </div>
+                    </motion.div>
                 </div>
-                
-                {/* Divider */}
-                {/* <div className="w-full h-[1px] bg-gray-700/50 my-16"></div> */}
 
-                {/* 3. Bottom Section: Detailed Event Cards (Reusing PastEvent style) */}
-                <div className="flex flex-wrap justify-center gap-20 md:gap-25 pt-22">
+                {/* 3. Bottom Section: Detailed Event Cards */}
+                <motion.div 
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.1 }}
+                    variants={staggerContainer}
+                    className="flex flex-wrap justify-center gap-y-32 gap-x-12 pt-10"
+                >
                     {awardsList.map((award, index) => (
-                        <div
-                            key={index}
-                            className="
-                                bg-gray-800/60 p-5 rounded-xl flex flex-col w-full max-w-[370px] 
-                                relative min-h-[400px] shadow-2xl backdrop-blur-sm 
-                                border border-indigo-500/30 transform hover:scale-[1.02] transition duration-300 mb-24
-                            "
+                        <motion.div
+                            key={award.id}
+                            variants={fadeInUp}
+                            whileHover={{ y: -5 }}
+                            className="bg-gray-800/60 p-6 rounded-2xl flex flex-col w-full max-w-[360px] relative min-h-[380px] shadow-2xl backdrop-blur-sm border border-indigo-500/20"
                         >
-                            {/* Image/Visual Placeholder (Popping out) */}
-                            <div
-                                className="
-                                    bg-white w-[300px] absolute h-[180px] rounded-lg 
-                                    flex items-center justify-center 
-                                    top-[-90px] left-1/2 transform -translate-x-1/2 
-                                    shadow-[10px_-10px_40px_10px_rgba(144,83,232,0.64)] 
-                                    
-                                "
+                            {/* Popping Visual */}
+                            <motion.div
+                                initial={{ y: 20, opacity: 0 }}
+                                whileInView={{ y: 0, opacity: 1 }}
+                                transition={{ delay: 0.2 + (index * 0.1) }}
+                                className="bg-gradient-to-br from-white to-gray-200 w-[280px] absolute h-[180px] rounded-xl flex items-center justify-center top-[-90px] left-1/2 transform -translate-x-1/2 shadow-[0_20px_40px_rgba(99,102,241,0.4)] overflow-hidden"
                             >
-                                <span className="text-gray-900 font-semibold text-lg">Event Visual</span>
-                            </div>
+                                <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/10 to-transparent" />
+                                <span className="text-indigo-900 font-black text-xl tracking-tighter uppercase opacity-80">
+                                    {award.name.split(' ')[0]}
+                                </span>
+                            </motion.div>
 
                             {/* Text Content */}
-                            <div className="mt-[110px] text-white flex flex-col space-y-3">
-                                <h4 className="text-2xl font-bold text-indigo-400">{award.name}</h4>
-                                <p className="p-2 text-gray-300 text-base leading-relaxed">{award.des}</p>
-                                <button className="text-sm text-purple-400 font-medium hover:text-purple-300 transition mt-2 self-start">
-                                    View Details →
-                                </button>
+                            <div className="mt-28 text-white flex flex-col flex-grow">
+                                <h4 className="text-2xl font-bold text-indigo-300 mb-3">{award.name}</h4>
+                                <p className="text-gray-400 text-sm leading-relaxed mb-6">
+                                    {award.des}
+                                </p>
+                                <div className="mt-auto">
+                                    <button className="group text-sm text-purple-400 font-bold flex items-center gap-2 hover:text-white transition-colors">
+                                        LEARN MORE 
+                                        <span className="group-hover:translate-x-1 transition-transform">→</span>
+                                    </button>
+                                </div>
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </section>
     );
