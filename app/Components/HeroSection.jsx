@@ -91,14 +91,14 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Image Section */}
+          {/* Image Section - Adjusted for Mobile Viewport and Size */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.8, x: 50 }}
             animate={{ opacity: 1, scale: 1, x: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
-            className="w-full md:w-1/2 flex justify-center items-center"
+            className="w-full md:w-1/2 flex justify-center items-center mt-12 md:mt-0 md:translate-x-0 -translate-x-6"
           >
-              <div className="relative p-2">
+              <div className="relative p-2 w-full flex justify-center">
                   {/* Subtle glow behind the robot */}
                   <motion.div 
                     animate={{ 
@@ -109,7 +109,7 @@ const HeroSection = () => {
                     className="absolute inset-0 bg-indigo-500/20 blur-3xl rounded-full"
                   ></motion.div>
                   
-                  {/* Floating Robot Image */}
+                  {/* Floating Robot Image - max-w increased */}
                   <motion.img 
                       animate={{ y: [0, -20, 0] }}
                       transition={{ 
@@ -119,7 +119,7 @@ const HeroSection = () => {
                       }}
                       src="https://res.cloudinary.com/dmg4pfrkg/image/upload/v1764771486/3ed4a00b22d66e2a32b349fb07011802197b52e8_dcg2ow.png" 
                       alt="Robotics Club Robot" 
-                      className="relative w-full h-auto max-w-lg rounded-lg scale-x-[-1] drop-shadow-[0_20px_50px_rgba(79,70,229,0.4)]" 
+                      className="relative w-full h-auto max-w-xl md:max-w-2xl rounded-lg scale-x-[-1] drop-shadow-[0_20px_50px_rgba(79,70,229,0.4)]" 
                   />
               </div>
           </motion.div>
