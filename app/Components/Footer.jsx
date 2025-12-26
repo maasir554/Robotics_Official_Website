@@ -105,7 +105,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 hover:text-indigo-400 transition-colors"
               >
-                <Instagram size={18} /> <span className="hidden sm:inline">Instagram</span>
+                <Instagram size={22} /> <span className="hidden sm:inline">Instagram</span>
               </a>
               <a 
                 href="https://www.linkedin.com/company/robotics-club-nit-bhopal/" 
@@ -113,13 +113,13 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 hover:text-indigo-400 transition-colors"
               >
-                <Linkedin size={18} /> <span className="hidden sm:inline">LinkedIn</span>
+                <Linkedin size={22} /> <span className="hidden sm:inline">LinkedIn</span>
               </a>
               <a 
                 href="mailto:roboticsclubnitb@gmail.com" 
                 className="flex items-center gap-2 hover:text-indigo-400 transition-colors"
               >
-                <Mail size={18} /> <span className="hidden sm:inline">roboticsclubnitb@gmail.com</span>
+                <Mail size={22} /> <span className="hidden sm:inline">roboticsclubnitb@gmail.com</span>
               </a>
             </div>
         </div>
