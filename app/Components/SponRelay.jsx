@@ -80,7 +80,7 @@ const SponsorMarquee = () => {
           {duplicatedSponsors.map((sponsor, index) => (
             <div 
               key={index} 
-              className="flex flex-shrink-0 items-center justify-center w-40 h-20 mx-4 bg-white/5 p-3 rounded-xl backdrop-blur-sm border border-white/10 transition duration-300 transform hover:scale-110"
+              className="flex flex-shrink-0 items-center justify-center w-40 h-30 mx-4 bg-white/5 p-3 rounded-xl backdrop-blur-sm border border-white/10 transition duration-300 transform hover:scale-110"
               title={sponsor.name}
             >
               <img 
