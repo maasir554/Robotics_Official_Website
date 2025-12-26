@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React from "react";
 import { motion } from "framer-motion";
 
 const NewSponsor = () => {
@@ -8,7 +8,7 @@ const NewSponsor = () => {
     <>
       <section className="py-12 md:py-24 overflow-hidden" id="upcoming">
         {/* Header Section Animation */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -16,12 +16,15 @@ const NewSponsor = () => {
           className="mb-20"
         >
           <h1 className="text-center text-4xl md:text-5xl font-extrabold text-white">
-            Upcoming <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-500">Event : RoboMAX</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-500">
+              {" "}
+              Robofiesta 2026
+            </span>
           </h1>
         </motion.div>
 
         {/* Main Card with Scale-up Animation */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
@@ -33,30 +36,32 @@ const NewSponsor = () => {
             border border-white/10 backdrop-blur-3xl shadow-2xl shadow-purple-500/10"
         >
           <div className="flex flex-col md:flex-row gap-10 md:gap-16">
-            
             {/* Left Section: Floating Animation for Image */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="w-full md:w-1/2 flex items-center justify-center"
             >
-              <motion.div 
+              <motion.div
                 animate={{ y: [0, -15, 0] }} // Gentle floating effect
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
                 className="w-full h-64 md:h-96 bg-gradient-to-tr from-gray-700/40 to-gray-600/20 
                            rounded-3xl flex items-center justify-center text-gray-300 text-xl 
                            font-bold border border-white/5 shadow-2xl"
               >
-                Main Sponsor/Video Placeholder 
+                Main Sponsor/Video Placeholder
               </motion.div>
             </motion.div>
 
             {/* Right Section: Text Content with Staggered Fade-in */}
             <div className="w-full md:w-1/2 flex flex-col items-start space-y-6 justify-center">
-              
-              <motion.div 
+              {/* <motion.div 
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
@@ -64,9 +69,9 @@ const NewSponsor = () => {
                            bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full shadow-lg shadow-purple-500/30"
               >
                 New Sponsor Presents
-              </motion.div>
-              
-              <motion.h1 
+              </motion.div> */}
+
+              <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
@@ -75,29 +80,42 @@ const NewSponsor = () => {
                 Annual Robotics <br />
                 <span className="text-indigo-400">Competition</span>
               </motion.h1>
-              
-              <motion.p 
+
+              <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6 }}
                 className="text-gray-300 text-lg leading-relaxed max-w-lg"
               >
-                Join us for the biggest robotics competition in Central India. Showcase your skills, compete with the best teams, and win exciting prizes.
+                Join us for the biggest robotics competition in Central India.
+                Showcase your skills, compete with the best teams, and win
+                exciting prizes.
               </motion.p>
-              
-              <motion.button 
+
+              <motion.button
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                whileHover={{ scale: 1.05 }}
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow:
+                    "0px 0px 25px rgba(168, 85, 247, 0.6), 0px 0px 25px rgba(59, 130, 246, 0.6)",
+                }}
                 whileTap={{ scale: 0.95 }}
-                transition={{ delay: 0.7 }}
+                transition={{ delay: 0.5, duration: 0.4 }}
                 className="
-                  bg-gradient-to-r from-purple-600 to-indigo-500 
-                  text-white py-4 px-12 rounded-xl 
-                  font-bold text-lg mt-4 shadow-xl
-                  hover:shadow-purple-500/50 transition-all duration-300"
+    relative group overflow-hidden
+    bg-gradient-to-r from-[indigo-400/20] to-[purple-400/20 ] 
+    text-white py-3 px-10 rounded-xl 
+    font-bold text-lg mt-8
+    shadow-[0px_0px_20px_rgba(144,83,232,0.3)]
+    border border-white/20 backdrop-blur-md
+    transition-all duration-300
+  "
               >
-                Register Now
+                {/* Inner Reflection/Shine Effect */}
+                <span className="absolute inset-0 w-full h-full bg-gradient-to-t from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out" />
+
+                <span className="relative z-10">Register Now</span>
               </motion.button>
             </div>
           </div>
