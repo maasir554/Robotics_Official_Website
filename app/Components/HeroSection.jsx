@@ -7,16 +7,13 @@ import LiquidEther from "../../reactBitsComponents/LiquidEther";
 const HeroSection = () => {
   const [isMounted, setIsMounted] = useState(false);
   
-  // 1. Setup Motion Values for mouse tracking
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  // 2. Spring Physics for "Premium" lagging feel
   const springConfig = { stiffness: 150, damping: 20 };
   const cursorX = useSpring(mouseX, springConfig);
   const cursorY = useSpring(mouseY, springConfig);
 
-  // 3. Convert motion values to CSS-friendly pixel strings
   const maskX = useTransform(cursorX, (val) => `${val}px`);
   const maskY = useTransform(cursorY, (val) => `${val}px`);
 
@@ -37,7 +34,7 @@ const HeroSection = () => {
       y: 0,
       filter: "blur(0px)",
       transition: {
-        delay: 0.2 + i * 0.2,
+        delay: 0.8 + i * 0.2,
         duration: 1,
         ease: [0.2, 0.65, 0.3, 0.9],
       },
@@ -59,20 +56,27 @@ const HeroSection = () => {
         />
       </div>
       
-      {/* 2. LAYER: BASE ROBOT (Always Visible but Dimmed) */}
-      <div className="absolute inset-0 z-1 flex items-center justify-center opacity-30">
+      {/* 2. LAYER: BASE ROBOT (Entrance Zoom + Shifted Position) */}
+      <motion.div 
+        initial={{ scale: 0.4, opacity: 0, filter: "blur(20px) hue-rotate(90deg) brightness(0.5)" }}
+        animate={{ scale: 1, opacity: 0.3, filter: "blur(0px) hue-rotate(0deg) brightness(0.75)" }}
+        transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1] }}
+        className="absolute inset-0 z-1 flex items-center justify-center translate-x-[5%] translate-y-[5%]" // Shifting Right and Down
+      >
         <img 
           src="https://res.cloudinary.com/dmg4pfrkg/image/upload/v1764771486/3ed4a00b22d66e2a32b349fb07011802197b52e8_dcg2ow.png" 
-          className="h-[85vh] w-auto object-contain scale-x-[-1] filter brightness-75 grayscale-[20%]"
+          className="h-[85vh] w-auto object-contain scale-x-[-1] grayscale-[20%]"
           alt="Robot Base"
         />
-      </div>
+      </motion.div>
 
-      {/* 3. LAYER: HIGH-DEF REVEAL (Interactive Mask) */}
+      {/* 3. LAYER: HIGH-DEF REVEAL (Shifted to match Base) */}
       <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5 }}
         className="absolute inset-0 z-20 pointer-events-none"
         style={{
-          // Using CSS variables to handle the radial gradient coordinates
           maskImage: `radial-gradient(circle 250px at var(--x) var(--y), black 0%, transparent 100%)`,
           WebkitMaskImage: `radial-gradient(circle 250px at var(--x) var(--y), black 0%, transparent 100%)`,
           "--x": maskX,
@@ -82,7 +86,7 @@ const HeroSection = () => {
         <div className="absolute inset-0 flex items-center justify-center">
           <img 
             src="https://res.cloudinary.com/dmg4pfrkg/image/upload/v1764771486/3ed4a00b22d66e2a32b349fb07011802197b52e8_dcg2ow.png" 
-            className="h-[85vh] w-auto object-contain scale-x-[-1] brightness-125 contrast-125 filter drop-shadow-[0_0_80px_rgba(99,102,241,0.6)]"
+            className="h-[85vh] mr-15 mt-0 md:mt-5 w-auto object-contain scale-x-[-1] brightness-125 contrast-125 filter drop-shadow-[0_0_80px_rgba(99,102,241,0.6)]"
             alt="Robot Reveal"
           />
         </div>
@@ -117,15 +121,6 @@ const HeroSection = () => {
               MANIT
             </motion.span>
           </h1>
-
-          <motion.p 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.5 }}
-            className="mt-12 text-indigo-200/40 text-xs md:text-sm font-medium tracking-[0.6em] uppercase"
-          >
-            "When innovation meets engineering"
-          </motion.p>
         </motion.div>
       </div>
 
@@ -139,7 +134,6 @@ const HeroSection = () => {
         className="fixed top-0 left-0 w-2 h-2 bg-white rounded-full z-[100] pointer-events-none shadow-[0_0_20px_#fff]"
       />
 
-      {/* GLOBAL CSS ANIMATIONS */}
       <style jsx>{`
         @keyframes gradient-flow {
           0% { background-position: 0% 50%; }
