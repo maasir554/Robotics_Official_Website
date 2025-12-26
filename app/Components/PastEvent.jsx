@@ -6,36 +6,47 @@ const PastEvent = () => {
   const events = [
     {
       id: 1,
-      name: "ROBOTRONICS",
-      des: "Robotronics was a week-long workshop where students explored robotics, machine learning, IOT and AI. They engaged in hands-on activities with robot kits and simulation software.",
-      imgSrc: "placeholder_robomax_2023",
+      name: "AUTOMAX 4.0",
+      des: "A hands-on workshop expanding beyond fundamentals with AI and ML, where participants built gesture-controlled cars blending robotics with intelligent systems.",
+      imgSrc: "placeholder_automax_4",
     },
     {
       id: 2,
-      name: "AUTOMAX 2.0",
-      des: "AutoMax 2.0 our club's first past-pandemic event, include a two-day electronics and mechanics workshop and a robotics competition with 500+ students.",
-      imgSrc: "placeholder_ai_workshop",
+      name: "ROBOFIESTA 2025",
+      des: "A technical showcase where students compete in high-stakes challenges like RoboRace, MazeRush, Cadathon, and Barricade Breakers.",
+      imgSrc: "placeholder_robofiesta_2025",
     },
     {
       id: 3,
+      name: "CYBERPUNK",
+      des: "A robotics sports showdown combining soccer, archery, and sumo bot battles in a high-pressure arena demanding smart engineering.",
+      imgSrc: "placeholder_cyberpunk",
+    },
+    {
+      id: 4,
       name: "MAKE-a-THON",
-      des: "A challenge to transform theoretical knowledge into practical application. Students were tasked with identifying a real-world problem and developing a robotic solution.",
-      imgSrc: "placeholder_hackathon",
+      des: "A rapid prototyping contest where teams used robotics kits and countdown timers to solve real-world problems through creative collaboration.",
+      imgSrc: "placeholder_makeathon_new",
+    },
+    {
+      id: 5,
+      name: "AUTOMAX 3.0",
+      des: "A massive workshop and competition for 500+ students from Bhopal, focusing on hands-on electronics and mechanics challenges.",
+      imgSrc: "placeholder_automax_3",
     },
   ];
 
-  // Container variant to handle the staggering of children
+  // --- TUMHARA ORIGINAL ANIMATION START ---
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2, // Delay between each card's animation
+        staggerChildren: 0.2, 
       },
     },
   };
 
-  // Individual card variant
   const cardVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: { 
@@ -44,12 +55,13 @@ const PastEvent = () => {
       transition: { duration: 0.6, ease: "easeOut" } 
     },
   };
+  // --- TUMHARA ORIGINAL ANIMATION END ---
 
   return (
     <section className="py-16 md:py-24 overflow-hidden" id="pastevent">
       <div className="container mx-auto px-6 lg:px-12">
         
-        {/* Header Section Animation */}
+        {/* Header Section */}
         <motion.div 
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -61,31 +73,31 @@ const PastEvent = () => {
           </h1>
         </motion.div>
 
-        {/* Event Cards Container with Stagger Effect */}
+        {/* Layout fix: grid use kiya hai taaki 5 cards sahi se dikhein */}
         <motion.div 
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
-          className="flex flex-col md:flex-row gap-24 md:gap-12 justify-center items-center md:items-stretch"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-28 gap-x-10 justify-items-center"
         >
           {events.map((eventItem, index) => (
             <motion.div
-              key={index}
+              key={eventItem.id}
               variants={cardVariants}
-              whileHover={{ y: -10 }} // Extra interaction: lift slightly more on hover
+              whileHover={{ y: -10 }} 
               className="
                 bg-gray-800/60 p-5 rounded-xl flex flex-col w-full max-w-sm 
                 relative min-h-[400px] shadow-2xl backdrop-blur-sm 
-                border border-indigo-500/30 transition-shadow duration-300 mt-20 md:mt-15
+                border border-indigo-500/30 transition-shadow duration-300 mt-10
                 hover:shadow-indigo-500/20 hover:border-indigo-400
               "
             >
-              {/* Image/Visual Placeholder */}
+              {/* Image Visual */}
               <motion.div
                 initial={{ scale: 0.8, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
-                transition={{ delay: index * 0.2 + 0.3 }} // Pops out slightly after the card appears
+                transition={{ delay: index * 0.2 + 0.3 }}
                 className="
                   bg-white w-[85%] absolute h-[180px] rounded-lg 
                   flex items-center justify-center 

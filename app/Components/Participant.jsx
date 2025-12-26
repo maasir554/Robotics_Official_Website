@@ -5,13 +5,43 @@ import { motion } from "framer-motion";
 
 const Participant = () => {
     const awardsList = [
-        { id: 1, name: "ABU ROBOCON 23", des: "In the 2023 ABU Robocon ideation round, our team achieved 98.5 out of 100 points. We presented a detailed project featuring CAD modeling and documentation." },
-        { id: 2, name: "FLIPKART GRID 4.0", des: "Hosted by Flipkart, we built an autonomous drone for the esteemed GRID 4.0 competition capable of pick and drop using camera vision." },
-        { id: 3, name: "IRDC 2023", des: "Our robotics club advanced to the second round of the International Rover Design Challenge (IRDC), demonstrating exceptional technical abilities." },
-        { id: 4, name: "ISRO ROVER CHALLENGE'23", des: "Proud to announce our advancement to the second round of the ISRO Robotics challenge-URSC 2024. Themed 'Let's build a space robot'." },
-        { id: 5, name: "International RoboCup", des: "Participation in the European standard league representing our institution on a global stage." },
-        { id: 6, name: "AI Summit", des: "Recognized for the Best Research Paper Presentation Award among top technical universities." },
-    ];
+    {
+      id: 1,
+      name: "NXP AIM 2025",
+      des: "We secured the AI Arjuna Award by building a high-performance autonomous system for warehouse navigation and object detection, demonstrating strong technical depth and teamwork.",
+      imgSrc: "placeholder_nxp_aim",
+    },
+    {
+      id: 2,
+      name: "GUJARAT ROBOFEST 4.0",
+      des: "We emerged as Grand Finalists at Gujarat Robofest 2025, representing our ideas in Rover and Application-Based challenges, showcasing technical depth and real-world impact.",
+      imgSrc: "placeholder_gujarat_robofest",
+    },
+    {
+      id: 3,
+      name: "TECHNEX IIT BHU",
+      des: "We excelled at Technex 2025, IIT BHU, ranking among the top teams with innovative designs and precise execution, strengthening our legacy of innovation.",
+      imgSrc: "placeholder_technex",
+    },
+    {
+      id: 4,
+      name: "ABU ROBOCON",
+      des: "This hands-on challenge pushed participants to solve real-world problems using robotics kits under time pressure, highlighting innovation and rapid prototyping.",
+      imgSrc: "placeholder_robocon",
+    },
+    {
+      id: 5,
+      name: "FLIPKART GRID 4.0",
+      des: "Built an autonomous drone with accurate pick-and-drop capabilities powered by computer vision, combining Pixhawk and Raspberry Pi for intelligent flight control.",
+      imgSrc: "placeholder_flipkart_grid",
+    },
+    {
+      id: 6,
+      name: "ISRO ROVER DESIGN CHALLENGE",
+      des: "Advanced to Round 2 of the ISRO Robotics Challenge – URSC, designing a rover capable of rough terrain navigation and sample collection for future space exploration.",
+      imgSrc: "placeholder_isro_rover",
+    },
+  ];
 
     // Animation variants
     const fadeInUp = {
