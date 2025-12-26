@@ -4,7 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const Participant = () => {
-    const awardsList = [
+  const awardsList = [
     {
       id: 1,
       name: "NXP AIM 2025",
@@ -43,144 +43,159 @@ const Participant = () => {
     },
   ];
 
-    // Animation variants
-    const fadeInUp = {
-        hidden: { opacity: 0, y: 30 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
-    };
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+  };
 
-    const staggerContainer = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: { staggerChildren: 0.1 }
-        }
-    };
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1 }
+    }
+  };
 
-    return (
-        <section className="bg-gray-900 py-20 md:py-28 overflow-hidden">
-            <div className="container mx-auto px-6 lg:px-12">
-                
-                {/* 1. Header Section */}
-                <motion.div 
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    className="text-center mb-24"
-                >
-                    <h1 className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-500">
-                        Participations & Achievements
-                    </h1>
-                    <div className="w-24 h-1 bg-indigo-500 mx-auto mt-4 rounded-full opacity-50" />
-                </motion.div>
+  return (
+    <section className="bg-gray-900 py-20 md:py-28 overflow-hidden">
+      <div className="container mx-auto px-6 lg:px-12">
+        
+        {/* 1. Header Section */}
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          className="text-center mb-24"
+        >
+          <h1 className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-500">
+            Participations & Achievements
+          </h1>
+          <div className="w-24 h-1 bg-indigo-500 mx-auto mt-4 rounded-full opacity-50" />
+        </motion.div>
 
-                {/* 2. Top Section: Visual Achievements & Awards List */}
-                <div className="flex flex-col md:flex-row items-center md:justify-around gap-12 md:gap-8 mb-32">
-                    
-                    {/* Visual Placeholders */}
-                    <motion.div 
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        variants={staggerContainer}
-                        className="flex gap-6 md:gap-12"
-                    >
-                        {/* Trophy */}
-                        <motion.div 
-                            variants={fadeInUp}
-                            whileHover={{ y: -10, boxShadow: "0 0 25px rgba(250, 204, 21, 0.3)" }}
-                            className="bg-white/5 w-[150px] md:w-[220px] rounded-2xl h-[200px] flex flex-col items-center justify-center p-4 shadow-lg border border-yellow-400/30 backdrop-blur-sm transition-colors hover:border-yellow-400"
-                        >
-                            <span className="text-5xl mb-3">🏆</span>
-                            <span className="text-gray-300 font-bold text-center">National Trophy</span>
-                        </motion.div>
-                        
-                        {/* Certificate */}
-                        <motion.div 
-                            variants={fadeInUp}
-                            whileHover={{ y: -10, boxShadow: "0 0 25px rgba(59, 130, 246, 0.3)" }}
-                            className="bg-white/5 w-[150px] md:w-[220px] rounded-2xl h-[200px] flex flex-col items-center justify-center p-4 shadow-lg border border-blue-400/30 backdrop-blur-sm transition-colors hover:border-blue-400"
-                        >
-                            <span className="text-5xl mb-3">📜</span>
-                            <span className="text-gray-300 font-bold text-center">IIT TechFest Cert.</span>
-                        </motion.div>
-                    </motion.div>
+        {/* 2. Top Section: Increased Gap + Connecting Logic */}
+        <div className="flex flex-col md:flex-row items-center justify-center gap-16 lg:gap-32 mb-40 relative">
+          
+          {/* Main Photo (Left) */}
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            className="w-full md:w-1/2 max-w-lg relative group"
+          >
+            {/* Tech Accents */}
+            <div className="absolute -top-3 -left-3 w-10 h-10 border-t-2 border-l-2 border-indigo-500 z-10" />
+            <div className="absolute -bottom-3 -right-3 w-10 h-10 border-b-2 border-r-2 border-purple-500 z-10" />
+            
+            <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(79,70,229,0.2)] bg-gray-800">
+              {/* Scan Line */}
+              <motion.div 
+                animate={{ top: ["0%", "100%", "0%"] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
+                className="absolute left-0 w-full h-[1px] bg-indigo-400/60 z-20 shadow-[0_0_15px_rgba(129,140,248,1)]"
+              />
+              
+              <img 
+                src="https://res.cloudinary.com/dsgdfqnbj/image/upload/v1766739823/arjinawardrobotics_jxvblx.jpg" 
+                alt="Arjuna Award Achievement" 
+                className="w-full h-[380px] object-cover object-center grayscale hover:grayscale-0 transition-all duration-1000 group-hover:scale-105"
+              />
 
-                    {/* Awards List */}
-                    <motion.div 
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        variants={staggerContainer}
-                        className="w-full md:w-1/2 lg:w-1/3 text-white p-6 bg-indigo-950/20 rounded-3xl border border-indigo-500/10"
-                    >
-                        <h3 className="mb-6 font-extrabold text-2xl text-indigo-400">Awards and Recognition</h3>
-                        <ul className="flex flex-col gap-4 text-lg">
-                            {[
-                                { ico: "🏆", txt: "1st Place - National Robotics 2023" },
-                                { ico: "🥇", txt: "Best Innovation - IIT Delhi TechFest" },
-                                { ico: "🌍", txt: "International RoboCup Participant" },
-                                { ico: "🏅", txt: "Winner - State Level Line Follower" }
-                            ].map((item, i) => (
-                                <motion.li 
-                                    key={i}
-                                    variants={fadeInUp}
-                                    className="flex items-start bg-white/5 p-3 rounded-xl border border-transparent hover:border-indigo-500/30 transition-all"
-                                >
-                                    <span className="mr-3">{item.ico}</span> {item.txt}
-                                </motion.li>
-                            ))}
-                        </ul>
-                    </motion.div>
-                </div>
-
-                {/* 3. Bottom Section: Detailed Event Cards */}
-                <motion.div 
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, amount: 0.1 }}
-                    variants={staggerContainer}
-                    className="flex flex-wrap justify-center gap-y-32 gap-x-12 pt-10"
-                >
-                    {awardsList.map((award, index) => (
-                        <motion.div
-                            key={award.id}
-                            variants={fadeInUp}
-                            whileHover={{ y: -5 }}
-                            className="bg-gray-800/60 p-6 rounded-2xl flex flex-col w-full max-w-[360px] relative min-h-[380px] shadow-2xl backdrop-blur-sm border border-indigo-500/20"
-                        >
-                            {/* Popping Visual */}
-                            <motion.div
-                                initial={{ y: 20, opacity: 0 }}
-                                whileInView={{ y: 0, opacity: 1 }}
-                                transition={{ delay: 0.2 + (index * 0.1) }}
-                                className="bg-gradient-to-br from-white to-gray-200 w-[280px] absolute h-[180px] rounded-xl flex items-center justify-center top-[-90px] left-1/2 transform -translate-x-1/2 shadow-[0_20px_40px_rgba(99,102,241,0.4)] overflow-hidden"
-                            >
-                                <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/10 to-transparent" />
-                                <span className="text-indigo-900 font-black text-xl tracking-tighter uppercase opacity-80">
-                                    {award.name.split(' ')[0]}
-                                </span>
-                            </motion.div>
-
-                            {/* Text Content */}
-                            <div className="mt-28 text-white flex flex-col flex-grow">
-                                <h4 className="text-2xl font-bold text-indigo-300 mb-3">{award.name}</h4>
-                                <p className="text-gray-400 text-sm leading-relaxed mb-6">
-                                    {award.des}
-                                </p>
-                                <div className="mt-auto">
-                                    <button className="group text-sm text-purple-400 font-bold flex items-center gap-2 hover:text-white transition-colors">
-                                        LEARN MORE 
-                                        <span className="group-hover:translate-x-1 transition-transform">→</span>
-                                    </button>
-                                </div>
-                            </div>
-                        </motion.div>
-                    ))}
-                </motion.div>
+              <div className="absolute bottom-4 left-4 right-4 bg-black/70 backdrop-blur-md p-3 rounded-xl border border-white/10">
+                <p className="text-xs font-mono text-indigo-300 tracking-[0.2em] uppercase">Status: Verified Achievement</p>
+              </div>
             </div>
-        </section>
-    );
+
+            {/* Subtle connecting line decoration visible only on MD+ */}
+            <div className="hidden lg:block absolute top-1/2 -right-24 w-16 h-[1px] bg-gradient-to-r from-indigo-500/50 to-transparent" />
+          </motion.div>
+
+          {/* Awards List Text (Right) - Added padding-left for more distance */}
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="w-full md:w-1/2 lg:w-2/5 text-white p-8 lg:p-10 bg-indigo-950/20 rounded-[2rem] border border-indigo-500/10 backdrop-blur-sm shadow-xl"
+          >
+            <div className="mb-8">
+                <h3 className="font-extrabold text-3xl text-indigo-400 inline-block relative">
+                    Awards & Recognition
+                    <span className="absolute -bottom-2 left-0 w-1/2 h-1 bg-indigo-500/30 rounded-full" />
+                </h3>
+            </div>
+
+            <ul className="flex flex-col gap-6 text-lg">
+              {[
+                { ico: "🏆", txt: "AI Arjuna Award - NXP AIM 2025", sub: "National Winner" },
+                { ico: "🥇", txt: "Grand Finalists - Robofest 4.0", sub: "Top Tier Performance" },
+                { ico: "🌍", txt: "Top Rankings - Technex IIT BHU", sub: "Innovation Excellence" },
+                { ico: "🏅", txt: "Winner - State Level Challenges", sub: "Technical Proficiency" }
+              ].map((item, i) => (
+                <motion.li 
+                  key={i}
+                  variants={fadeInUp}
+                  className="flex items-center group p-2"
+                >
+                  <div className="mr-5 w-12 h-12 rounded-full bg-indigo-500/10 flex items-center justify-center border border-indigo-500/20 group-hover:bg-indigo-500/20 transition-all">
+                    <span className="text-2xl">{item.ico}</span> 
+                  </div>
+                  <div>
+                    <span className="block font-bold text-gray-100 group-hover:text-indigo-300 transition-colors">{item.txt}</span>
+                    <span className="text-xs text-indigo-400/60 font-mono tracking-tighter uppercase">{item.sub}</span>
+                  </div>
+                </motion.li>
+              ))}
+            </ul>
+          </motion.div>
+        </div>
+
+        {/* 3. Bottom Section (Same as before) */}
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={staggerContainer}
+          className="flex flex-wrap justify-center gap-y-36 gap-x-12 pt-10"
+        >
+          {awardsList.map((award, index) => (
+            <motion.div
+              key={award.id}
+              variants={fadeInUp}
+              whileHover={{ y: -10 }}
+              className="bg-gray-800/60 p-8 rounded-3xl flex flex-col w-full max-w-[360px] relative min-h-[400px] shadow-2xl backdrop-blur-sm border border-indigo-500/10 hover:border-indigo-500/40 transition-all"
+            >
+              <motion.div
+                initial={{ y: 20, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.2 + (index * 0.1) }}
+                className="bg-gradient-to-br from-indigo-100 to-white w-[280px] absolute h-[190px] rounded-2xl flex items-center justify-center top-[-95px] left-1/2 transform -translate-x-1/2 shadow-[0_30px_60px_rgba(0,0,0,0.4)] overflow-hidden"
+              >
+                <div className="absolute inset-0 bg-gradient-to-tr from-indigo-600/20 to-transparent" />
+                <span className="text-indigo-950 font-black text-2xl tracking-tighter uppercase opacity-90 text-center px-4">
+                  {award.name}
+                </span>
+              </motion.div>
+
+              <div className="mt-28 text-white flex flex-col flex-grow">
+                <h4 className="text-2xl font-bold text-indigo-300 mb-4">{award.name}</h4>
+                <p className="text-gray-400 text-sm leading-relaxed mb-8">
+                  {award.des}
+                </p>
+                <div className="mt-auto">
+                  <button className="group text-xs tracking-widest text-purple-400 font-black flex items-center gap-3 hover:text-white transition-all">
+                    LEARN MORE 
+                    <span className="w-8 h-[1px] bg-purple-400 group-hover:w-12 transition-all" />
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
 };
 
 export default Participant;
