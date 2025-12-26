@@ -38,14 +38,14 @@ const customStyles = `
 // Updated sponsor data using your provided Cloudinary links
 const sponsorData = [
   { name: "Dainik Jagran", src: "https://res.cloudinary.com/dsgdfqnbj/image/upload/v1766738070/dainikjagran_is8k5u.png" },
-  { name: "Hitvada", src: "https://res.cloudinary.com/dsgdfqnbj/image/upload/v1766738071/hitvada_c8yknq.png" },
+  { name: "Hitvada", src: "https://res.cloudinary.com/dsgdfqnbj/image/upload/v1766763223/hitvada_cnr1bb.png" },
   { name: "LIC", src: "https://res.cloudinary.com/dsgdfqnbj/image/upload/v1766738071/lic_riha2j.jpg" },
   { name: "Made Easy", src: "https://res.cloudinary.com/dsgdfqnbj/image/upload/v1766738072/madeeasy_gkltzv.png" },
   { name: "Nai Dunia", src: "https://res.cloudinary.com/dsgdfqnbj/image/upload/v1766738071/naidunia_bkdava.png" },
   { name: "Patrika", src: "https://res.cloudinary.com/dsgdfqnbj/image/upload/v1766738072/patrika_dksgan.png" },
   { name: "Rao Academy", src: "https://res.cloudinary.com/dsgdfqnbj/image/upload/v1766738072/raoacademy_rnizxa.png" },
-  { name: "The Pioneer", src: "https://res.cloudinary.com/dsgdfqnbj/image/upload/v1766738072/pioneer_ljgw4h.png" },
-  { name: "Robonauts", src: "https://res.cloudinary.com/dsgdfqnbj/image/upload/v1766738074/robonauts_xj5p72.png" },
+  { name: "The Pioneer", src: "https://res.cloudinary.com/dsgdfqnbj/image/upload/v1766763223/pioneer_sswy2z.png" },
+  { name: "Robonauts", src: "https://res.cloudinary.com/dsgdfqnbj/image/upload/v1766763223/robonauts_bobotg.png" },
 ];
 
 const SponsorMarquee = () => {
