@@ -75,38 +75,54 @@ const PastEvent = () => {
           viewport={{ once: true, amount: 0.2 }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-28 gap-x-10 justify-items-center"
         >
-          {events.map((eventItem, index) => (
-            <motion.div
-              key={eventItem.id}
-              variants={cardVariants}
-              whileHover={{ y: -10 }} 
-              className="bg-gray-800/60 p-5 rounded-xl flex flex-col w-full max-w-sm relative min-h-[400px] shadow-2xl backdrop-blur-sm border border-indigo-500/30 transition-shadow duration-300 mt-10 hover:shadow-indigo-500/20 hover:border-indigo-400"
-            >
-              {/* Image Visual - FIXED FOR FULL VISIBILITY */}
-              <motion.div
-                initial={{ scale: 0.8, opacity: 0 }}
-                whileInView={{ scale: 1, opacity: 1 }}
-                transition={{ delay: index * 0.2 + 0.3 }}
-                className="bg-gray-700 w-[85%] absolute aspect-video rounded-lg overflow-hidden top-[-60px] left-1/2 transform -translate-x-1/2 shadow-[10px_-10px_40px_10px_rgba(144,83,232,0.4)] z-10 border border-white/10"
-              >
-                <img 
-                  src={eventItem.imgSrc} 
-                  alt={eventItem.name} 
-                  className="w-full h-full object-cover object-center"
-                />
-              </motion.div>
+          {events.map((eventItem, index) => {
+            // Determine if the index is even (0, 2, 4) or odd (1, 3)
+            const isEven = index % 2 === 0;
 
-              {/* Text Content */}
-              <div className="mt-[130px] text-white flex flex-col space-y-3">
-                <h4 className="text-2xl font-bold text-indigo-400">{eventItem.name}</h4>
-                <p className="p-2 text-gray-300 text-sm md:text-base leading-relaxed">{eventItem.des}</p>
-                <a href={`/events/${eventItem.id}`} className="group text-sm text-purple-400 font-medium hover:text-purple-300 transition mt-2 inline-flex items-center">
-                    View Gallery 
-                    <span className="ml-1 transition-transform group-hover:translate-x-1">→</span>
-                </a>
-              </div>
-            </motion.div>
-          ))}
+            return (
+              <motion.div
+                key={eventItem.id}
+                variants={cardVariants}
+                whileHover={{ y: -10 }} 
+                className="bg-gray-800/60 p-5 rounded-xl flex flex-col w-full max-w-sm relative min-h-[400px] shadow-2xl backdrop-blur-sm border border-indigo-500/30 transition-shadow duration-300 mt-10 hover:shadow-indigo-500/20 hover:border-indigo-400"
+              >
+                {/* Image Visual with Alternating Scroll Directions */}
+                <motion.div
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  whileInView={{ scale: 1, opacity: 1 }}
+                  transition={{ delay: index * 0.2 + 0.3 }}
+                  className="bg-gray-700 w-[85%] absolute aspect-video rounded-lg overflow-hidden top-[-60px] left-1/2 transform -translate-x-1/2 shadow-[10px_-10px_40px_10px_rgba(144,83,232,0.4)] z-10 border border-white/10"
+                >
+                  <motion.img 
+                    src={eventItem.imgSrc} 
+                    alt={eventItem.name} 
+                    // Use object-top for even and object-bottom for odd to start at opposite ends
+                    className={`w-full h-auto absolute left-0 ${isEven ? 'top-0' : 'bottom-0'}`}
+                    animate={{
+                      // If even: starts at top (0) moves to bottom (-50%)
+                      // If odd: starts at bottom (0) moves to top (50% because it's bottom-aligned)
+                      y: isEven ? ["0%", "-50%", "0%"] : ["0%", "50%", "0%"]
+                    }}
+                    transition={{
+                      duration: 12, 
+                      repeat: Infinity, 
+                      ease: "easeInOut" 
+                    }}
+                  />
+                </motion.div>
+
+                {/* Text Content */}
+                <div className="mt-[130px] text-white flex flex-col space-y-3">
+                  <h4 className="text-2xl font-bold text-indigo-400">{eventItem.name}</h4>
+                  <p className="p-2 text-gray-300 text-sm md:text-base leading-relaxed">{eventItem.des}</p>
+                  <a href={`/events/${eventItem.id}`} className="group text-sm text-purple-400 font-medium hover:text-purple-300 transition mt-2 inline-flex items-center">
+                      View Gallery 
+                      <span className="ml-1 transition-transform group-hover:translate-x-1">→</span>
+                  </a>
+                </div>
+              </motion.div>
+            );
+          })}
         </motion.div>
       </div>
     </section>
