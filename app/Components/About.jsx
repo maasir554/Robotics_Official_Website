@@ -73,18 +73,18 @@ const About = () => {
 
             <motion.p
               variants={fadeInUp}
-              className="mb-4 leading-relaxed text-gray-300"
+              className="mb-4 leading-relaxed text-gray-300 text-justify"
             >
-              To foster a student-driven robotics culture with resources and
+              We aim to foster a student-driven robotics culture with resources and
               activities that turn classroom learning into real-world innovation
               through workshops, competitions, and projects.
             </motion.p>
 
             <motion.p
               variants={fadeInUp}
-              className="leading-relaxed text-gray-300"
+              className="leading-relaxed text-gray-300 text-justify"
             >
-              To foster a collaborative student community in robotics and
+              Our mission is to foster a collaborative student community in robotics and
               automation through hands-on experimentation, innovative design,
               and teamwork, using workshops, competitions, and projects to
               transform classroom learning into real-world solutions.

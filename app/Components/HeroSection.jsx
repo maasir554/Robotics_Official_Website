@@ -100,7 +100,7 @@ const HeroSection = () => {
           className="flex flex-col items-center text-center select-none"
         >
           <motion.span className="px-4 py-1.5 mb-6 text-[10px] font-bold tracking-[0.4em] text-indigo-400 border border-indigo-500/30 rounded-full bg-indigo-500/5 backdrop-blur-sm uppercase">
-            Robotics Revolution
+            We step up, We transfrom
           </motion.span>
 
           <h1 className="text-7xl md:text-9xl font-black tracking-tighter leading-[0.85] italic uppercase">
@@ -111,7 +111,7 @@ const HeroSection = () => {
             <motion.span 
               custom={1} 
               variants={lineVariants} 
-              className="block text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 py-2 animate-gradient-flow"
+              className="block p-2.5 text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 py-2 animate-gradient-flow"
               style={{ backgroundSize: '200% 200%' }}
             >
               ROBOTICS CLUB
