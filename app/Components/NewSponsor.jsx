@@ -43,9 +43,10 @@ const NewSponsor = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="w-full md:w-1/2 flex items-center justify-center"
+              className=" flex items-center justify-center"
             >
-              <motion.div
+              <motion.img
+              src="https://res.cloudinary.com/dpr7uqfxx/image/upload/v1767039184/Robofiesta_ygzr5f.png"
                 animate={{ y: [0, -15, 0] }} // Gentle floating effect
                 transition={{
                   duration: 4,
@@ -55,9 +56,9 @@ const NewSponsor = () => {
                 className="w-full h-64 md:h-96 bg-gradient-to-tr from-gray-700/40 to-gray-600/20 
                            rounded-3xl flex items-center justify-center text-gray-300 text-xl 
                            font-bold border border-white/5 shadow-2xl"
-              >
-                Main Sponsor/Video Placeholder
-              </motion.div>
+              />
+                {/* Main Sponsor/Video Placeholder
+              </motion.img> */}
             </motion.div>
 
             {/* Right Section: Text Content with Staggered Fade-in */}

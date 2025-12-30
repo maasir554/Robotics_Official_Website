@@ -82,20 +82,19 @@ const Footer = () => {
             transition={{ duration: 0.6 }}
             className="w-full md:w-1/2 shadow-2xl rounded-3xl overflow-hidden border border-white/5 bg-gray-800/20"
           >
-            <iframe
-              title="MANIT Location"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m13!1m3!1d3666.368739989506!2d77.402636775319!3d23.2114251790432!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397c42ef8646f881%3A0x6b0439626c934372!2sMaulana%20Azad%20National%20Institute%20of%20Technology%20(MANIT)%2C%20Bhopal!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin"
-              className="w-full h-[400px] md:h-full min-h-[400px] grayscale contrast-125 opacity-80 hover:opacity-100 hover:grayscale-0 transition-all duration-700"
-              style={{ border: 0 }}
-              allowFullScreen=""
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3666.719170530806!2d77.4034250749183!3d23.216902879038106!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397c42e6172cd895%3A0x4db3061b2d53709c!2sMANIT%20Bhopal!5e0!3m2!1sen!2sin!4v1767074869011!5m2!1sen!2sin" 
+            width="600" 
+            height="450" 
+            style={{border:0}} 
+            loading="lazy" 
+            referrerPolicy="no-referrer-when-downgrade"
+            className="w-full h-[400px] md:h-full min-h-[400px] grayscale contrast-125 opacity-80 hover:opacity-100 hover:grayscale-0 transition-all duration-700">
+            </iframe> 
           </motion.div>
         </div>
         
         {/* Footer Bottom Line */}
-        <div className="mt-20 pt-8 border-t border-gray-800/50 flex flex-col md:flex-row justify-between items-center gap-6 text-gray-500 text-sm">
+        <div className="mt-20  border-t border-gray-800/50 flex flex-col md:flex-row justify-between items-center gap-6 text-gray-500 text-sm">
             <p>© {new Date().getFullYear()} Robotics Club MANIT. All Rights Reserved.</p>
             
             <div className="flex gap-8">

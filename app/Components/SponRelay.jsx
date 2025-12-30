@@ -99,13 +99,13 @@ const SponsorMarquee = () => {
 
 const SponRelay = () => {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-4 font-sans">
+    <div className=" flex flex-col items-center justify-start p-16 font-sans">
       <header className="text-center mb-16">
         <h1 className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400 mb-4">
           Our Partners & Sponsors
         </h1>
         <p className="text-lg text-gray-500 max-w-2xl">
-          Collaborating with industry leaders to drive innovation and excellence.
+          Collaborating with an aim to drive innovation and excellence.
         </p>
       </header>
 
