@@ -10,9 +10,10 @@ export default function Navbar() {
 
   const navItems = [
     { label: "Home", href: "/" },
-    { label: "Robofiesta 26", href: "/robomax" },
-    { label: "Our Team", href: "/ourteam" },
+    { label: "Robofiesta", href: "/robomax" },
     { label: "Past Events", href: "#pastevent" },
+    { label: "Achievements", href: "#achievements" },
+    
   ];
 
   return (

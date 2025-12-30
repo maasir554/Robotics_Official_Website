@@ -58,7 +58,7 @@ const Participant = () => {
   };
 
   return (
-    <section className="bg-gray-900 py-20 md:py-20 overflow-hidden">
+    <section className="bg-gray-900 py-20 md:py-20 overflow-hidden" id="achievements">
       <div className="container mx-auto px-6 lg:px-12">
         
         {/* 1. Header Section */}
@@ -131,7 +131,7 @@ const Participant = () => {
               {[
                 { ico: "🏆", txt: "AI Arjuna Award - NXP AIM 2025", sub: "National Winner" },
                 { ico: "🥇", txt: "Grand Finalists - Robofest 4.0", sub: "Top Tier Performance" },
-                { ico: "🌍", txt: "Top Rankings - Technex IIT BHU", sub: "Innovation Excellence" },
+                { ico: "🌍", txt: "National Finalists - Technex IIT BHU", sub: "Innovation Excellence" },
                 { ico: "🏅", txt: "Zonal Qualifiers - Boeing RC Aeromodelling", sub: "Technical Proficiency" }
               ].map((item, i) => (
                 <motion.li 

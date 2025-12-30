@@ -94,7 +94,7 @@ const Footer = () => {
         </div>
         
         {/* Footer Bottom Line */}
-        <div className="mt-20  border-t border-gray-800/50 flex flex-col md:flex-row justify-between items-center gap-6 text-gray-500 text-sm">
+        <div className="mt-12 p-4 border-t border-gray-800/50 flex flex-col md:flex-row justify-between items-center gap-6 text-gray-500 text-sm">
             <p>© {new Date().getFullYear()} Robotics Club MANIT. All Rights Reserved.</p>
             
             <div className="flex gap-8">
