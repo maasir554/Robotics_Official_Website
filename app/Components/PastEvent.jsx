@@ -72,7 +72,7 @@ const PastEvent = () => {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, margin: "500px 0px" }}
           className="flex flex-wrap justify-center
     gap-x-10 gap-y-28"
         >
@@ -85,7 +85,7 @@ const PastEvent = () => {
                 key={eventItem.id}
                 variants={cardVariants}
                 whileHover={{ y: -10 }}
-                className="bg-gray-800/60 p-5 rounded-xl flex flex-col w-full max-w-sm relative min-h-[400px] shadow-2xl backdrop-blur-sm border border-indigo-500/30 transition-shadow duration-300 mt-10 hover:shadow-indigo-500/20 hover:border-indigo-400"
+                className="bg-gray-800/60 p-5 rounded-xl flex flex-col w-full max-w-sm relative min-h-[400px] shadow-2xl backdrop-blur-sm border border-indigo-500/30 transition-shadow duration-300 mt-5 hover:shadow-indigo-500/20 hover:border-indigo-400"
               >
                 {/* Image Visual with Alternating Scroll Directions */}
                 <motion.div
