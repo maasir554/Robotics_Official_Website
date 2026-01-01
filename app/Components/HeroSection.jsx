@@ -85,7 +85,7 @@ const HeroSection = () => {
       >
         <div className="absolute inset-0 flex items-center justify-center">
           <img 
-            src="https://res.cloudinary.com/dmg4pfrkg/image/upload/v1764771486/3ed4a00b22d66e2a32b349fb07011802197b52e8_dcg2ow.png" 
+            src="https://res.cloudinary.com/dsgdfqnbj/image/upload/v1767241620/3ed4a00b22d66e2a32b349fb07011802197b52e8_1_zjxxom.png" 
             className="h-[85vh] mr-15 mt-0 md:mt-5 w-auto object-contain scale-x-[-1] brightness-125 contrast-125 filter drop-shadow-[0_0_80px_rgba(99,102,241,0.6)]"
             alt="Robot Reveal"
           />
