@@ -64,7 +64,7 @@ const HeroSection = () => {
         className="absolute inset-0 z-1 flex items-center justify-center translate-x-[5%] translate-y-[5%]" // Shifting Right and Down
       >
         <img 
-          src="https://res.cloudinary.com/dmg4pfrkg/image/upload/v1764771486/3ed4a00b22d66e2a32b349fb07011802197b52e8_dcg2ow.png" 
+          src="https://res.cloudinary.com/dsgdfqnbj/image/upload/v1767241620/3ed4a00b22d66e2a32b349fb07011802197b52e8_1_zjxxom.png" 
           className="h-[85vh] w-auto object-contain scale-x-[-1] grayscale-[20%]"
           alt="Robot Base"
         />
